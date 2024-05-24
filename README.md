@@ -73,3 +73,50 @@ My personal playground for coding and learning.
     npm install
     ```
 
+### Color scheme
+
+##### Top Level semantic colors
+
+- background: background color of whole section, card, body, etc.
+- foreground: text, icons, and any elements on top of a background.
+- border: border color of any element.
+
+```scss
+:root {
+  // background colors for the card, body, etc.
+  --background-primary: #000000;
+  --background-secondary: #000000;
+  --background-tertiary: #000000;
+  // interactive background colors such as button, etc.
+  --background-interactive-primary-default: #000000;
+  --background-interactive-primary-hover: #000000;
+  --background-interactive-primary-active: #000000;
+
+  // colors on top of the background colors such as text, icons, etc.
+  --foreground-primary: #000000;
+  --foreground-secondary: #000000;
+  --foreground-tertiary: #000000;
+  // colors on top of the background colors BUT with a contained variant background
+  --foreground-inverse-primary: #000000;
+  --foreground-inverse-secondary: #000000;
+  --foreground-inverse-tertiary: #000000;
+  // interactive foreground colors such as button text, etc.
+  --foreground-interactive-primary-default: #000000;
+  --foreground-interactive-primary-hover: #000000;
+  // feedback colors such as toast message, inline message etc.
+  --foreground-system-success: #000000;
+
+  // typical border colors for the card, input, etc.
+  --border-primary: #000000;
+  --border-secondary: #000000;
+  --border-tertiary: #000000;
+
+  //
+  --border-input-default: #000000;
+  --border-input-hover: #000000;
+  --border-input-focus: #000000;
+
+  // border radius
+  --radius: 0.5rem;
+}
+```
