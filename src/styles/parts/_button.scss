@@ -3,24 +3,24 @@
     @apply inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
 
     &.variant {
-      &--primary {
-        @apply bg-primary text-primary-foreground hover:bg-primary/90;
-      }
+      &--contained {
+        @apply bg-accent text-accent-foreground;
 
-      &--secondary {
-        @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
-      }
+        &:hover {
+          @apply bg-accent-hover;
+        }
 
-      &--success {
-        @apply bg-success text-success-foreground hover:bg-success/90;
-      }
+        &:active {
+          @apply bg-accent-active;
+        }
 
-      &--info {
-        @apply bg-info text-info-foreground hover:bg-info/90;
-      }
+        &:focus {
+          @apply ring-accent;
+        }
 
-      &--error {
-        @apply bg-error text-error-foreground hover:bg-error/90;
+        &:disabled {
+          @apply bg-accent-disabled;
+        }
       }
 
       &--outline {
@@ -33,6 +33,28 @@
 
       &--link {
         @apply underline-offset-4 hover:underline;
+      }
+    }
+
+    &.color {
+      &--primary {
+        @apply bg-primary text-primary-foreground;
+      }
+
+      &--secondary {
+        @apply bg-secondary text-secondary-foreground;
+      }
+
+      &--success {
+        @apply bg-success text-success-foreground;
+      }
+
+      &--info {
+        @apply bg-info text-info-foreground;
+      }
+
+      &--error {
+        @apply bg-error text-error-foreground;
       }
     }
 

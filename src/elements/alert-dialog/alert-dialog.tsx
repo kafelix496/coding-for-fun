@@ -120,7 +120,7 @@ const AlertDialogAction = forwardRef<
 >(({ className, ...props }, ref) => (
   <Action
     ref={ref}
-    className={clsx('button variant--primary size--md', className)}
+    className={clsx('button variant--contained size--md', className)}
     {...props}
   />
 ))
@@ -151,10 +151,7 @@ type TCustomProps = {
     ButtonHTMLAttributes<HTMLButtonElement>,
     'onClick'
   > & {
-    variant?: Extract<
-      TButtonProps['variant'],
-      'primary' | 'secondary' | 'success' | 'info' | 'error'
-    >
+    variant?: TButtonProps['variant']
     label?: TButtonProps['label']
     isLoading?: TButtonProps['isLoading']
   }
@@ -218,7 +215,7 @@ export const AlertDialog = ({
             />
           </AlertDialogCancel>
           <Button
-            variant={actionVariant ?? 'primary'}
+            variant={actionVariant}
             label={
               actionLabel ??
               translate('COMMON.ALERT_DIALOG_DEFAULT_CONTINUE_BUTTON')

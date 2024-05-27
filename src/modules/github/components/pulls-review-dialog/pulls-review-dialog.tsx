@@ -238,11 +238,7 @@ export const PullsReviewDialog = ({
                 {translate('COMMON.ALERT_DIALOG_DEFAULT_CANCEL_BUTTON')}
               </Button>
 
-              <Button
-                variant="primary"
-                disabled={isLoading}
-                onClick={() => handleSubmit()}
-              >
+              <Button disabled={isLoading} onClick={() => handleSubmit()}>
                 {translate('COMMON.DIALOG_REVIEW_BUTTON')}
               </Button>
             </div>

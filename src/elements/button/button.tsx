@@ -8,15 +8,8 @@ import {
 } from 'react'
 
 interface IVariantProps {
-  variant?:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'info'
-    | 'error'
-    | 'outline'
-    | 'ghost'
-    | 'link'
+  variant?: 'contained' | 'outline' | 'icon' | 'ghost' | 'link'
+  color?: 'primary' | 'secondary' | 'success' | 'info' | 'error'
   size?: 'sm' | 'md' | 'lg' | 'icon'
 }
 
@@ -93,8 +86,8 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(
   (
     {
       className,
-      variant,
-      size,
+      variant = 'contained',
+      size = 'md',
       asChild = false,
       children,
       label,
@@ -106,12 +99,9 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(
   ) => {
     const basicClasses = 'button'
     const variantClasses: Record<Required<IVariantProps>['variant'], string> = {
-      primary: 'variant--primary',
-      secondary: 'variant--secondary',
-      success: 'variant--success',
-      info: 'variant--info',
-      error: 'variant--error',
+      contained: 'variant--contained',
       outline: 'variant--outline',
+      icon: 'variant--icon',
       ghost: 'variant--ghost',
       link: 'variant--link'
     }
@@ -127,8 +117,8 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(
       <Comp
         className={clsx(
           basicClasses,
-          variantClasses[variant ?? 'primary'],
-          sizeClasses[size ?? 'md'],
+          variantClasses[variant],
+          sizeClasses[size],
           className
         )}
         disabled={!!isLoading}
@@ -143,7 +133,6 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(
               {!!icon && !(isLoading && size === 'icon') && (
                 <span className="icon">{icon}</span>
               )}
-              {/* @ts-expect-error - I know size can't be 'icon' by typescript but I put this condition to make sure programatically */}
               {!!label && size !== 'icon' && (
                 <span className="label">{label}</span>
               )}
