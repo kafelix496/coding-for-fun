@@ -1,3 +1,4 @@
+// a
 // jest.polyfills.js
 /**
  * @note The block below contains polyfills for Node.js globals
