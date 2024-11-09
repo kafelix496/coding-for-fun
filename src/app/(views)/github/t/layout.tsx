@@ -9,9 +9,6 @@ import { useDictionary } from '@/contexts/root/dictionary-provider/dictionary-pr
 
 import { urlService } from '@/services/root/url'
 
-import { FilterProviderWidhInstallations } from '@/contexts/github/root/filter-provider/filter-provider-widh-installations'
-import { SelectedPullsProvider } from '@/contexts/github/root/selected-pulls-provider'
-
 enum ETabValue {
   CONNECTIONS = 'CONNECTIONS',
   PULLS = 'PULLS',
@@ -79,16 +76,12 @@ export default function Layout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <SelectedPullsProvider>
-      <FilterProviderWidhInstallations>
-        <Tabs
-          className="bg-background pb-4"
-          headerClassName="top-0 h-16 sticky z-20"
-          value={value}
-          onValueChange={handleValueChange}
-          values={tabValues}
-        />
-      </FilterProviderWidhInstallations>
-    </SelectedPullsProvider>
+    <Tabs
+      className="bg-background pb-4"
+      headerClassName="top-0 h-16 sticky z-20"
+      value={value}
+      onValueChange={handleValueChange}
+      values={tabValues}
+    />
   )
 }
