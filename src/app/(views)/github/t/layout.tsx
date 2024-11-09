@@ -36,13 +36,7 @@ const getValue = (pathname: string): ETabValue => {
   throw new Error('Invalid pathname')
 }
 
-export default function Layout({
-  children,
-  pullButtons
-}: {
-  children: ReactNode
-  pullButtons: ReactNode
-}) {
+export default function Layout({ children }: { children: ReactNode }) {
   const { translate } = useDictionary()
   const pathname = usePathname()
   const router = useRouter()
@@ -56,8 +50,7 @@ export default function Layout({
     {
       label: translate('GITHUB.TAB_BULK_PULL_REVIEWS_LABEL'),
       value: ETabValue.PULLS,
-      children,
-      actions: pullButtons
+      children
     },
     {
       label: translate('GITHUB.TAB_READY_MERGE_PULL_REQUEST_LABEL'),
