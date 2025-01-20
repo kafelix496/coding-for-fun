@@ -6,14 +6,7 @@ import { Table } from '@/elements/root/table/table'
 
 import { PullListByRepo } from '@/components/github/root/pull-list-by-repo/pull-list-by-repo'
 
-import {
-  ALL_INSTALLATION,
-  useFilterChange
-} from '@/contexts/github/root/filter-provider/filter-provider'
-import {
-  useRepos,
-  useUpdateRepoOrPull
-} from '@/contexts/github/root/selected-pulls-provider'
+import { useUpdateRepoOrPull } from '@/contexts/github/root/selected-pulls-provider'
 
 import type { TRepo } from '@/types/github/root/index'
 
@@ -116,17 +109,14 @@ const Repositories = ({ repos }: { repos: TRepo[] | undefined }) => {
   )
 }
 
-export const PullsByRepo = () => {
-  const { repos } = useRepos()
-  const { filterValue } = useFilterChange()
-  const filteredRepos =
-    filterValue === ALL_INSTALLATION
-      ? repos
-      : repos?.filter((repo) => String(repo.installationId) === filterValue)
+interface IPullsByRepoProps {
+  repos: TRepo[] | undefined
+}
 
+export const PullsByRepo = ({ repos }: IPullsByRepoProps) => {
   return (
     <ul className="flex flex-1 flex-col gap-2 overflow-y-auto">
-      <Repositories repos={filteredRepos} />
+      <Repositories repos={repos} />
     </ul>
   )
 }

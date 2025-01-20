@@ -37,6 +37,9 @@ export const dictionary = {
     SETTINGS_DROPDOWN: 'Settings',
     ALL_DROPDOWN: 'All',
     PULL_REVIEW_FORM_COMMENT_PLACEHOLDER: 'Leave a comment',
+    PULL_INFO_FORM_TITLE_PLACEHOLDER: 'Lave a title (Required)',
+    PULL_INFO_FORM_DESCRIPTION_PLACEHOLDER:
+      'Add an optional extended description...',
     TOAST_ADD_CONNECTION_SUCCESS_DESCRIPTION: 'Add connection successfully.',
     TOAST_DELETE_CONNECTION_SUCCESS_DESCRIPTION:
       'Delete connection successfully.',

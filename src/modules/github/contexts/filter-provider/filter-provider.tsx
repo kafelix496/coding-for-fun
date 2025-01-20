@@ -7,14 +7,16 @@ import {
   useContext,
   useState
 } from 'react'
+import { useRepos } from 'src/modules/github/contexts/selected-pulls-provider'
 
 import { ELocalStorageKey } from '@/types/root/index'
 
-import { type TGithubInstallation } from '@/types/github/root/index'
+import { type TGithubInstallation, type TRepo } from '@/types/github/root/index'
 
 export interface FilterContextType {
   filterValue: string | null
   setFilterValue: Dispatch<SetStateAction<string | null>>
+  installationFilteredRepos: TRepo[] | undefined
 }
 
 const FilterContext = createContext<FilterContextType | undefined>(undefined)
@@ -30,6 +32,7 @@ export const FilterProvider: FC<FilterProviderProps> = ({
   children,
   installations
 }) => {
+  const { repos } = useRepos()
   const [filterValue, setFilterValue] = useState<string | null>(() => {
     if (installations.length === 0) {
       return null
@@ -47,8 +50,15 @@ export const FilterProvider: FC<FilterProviderProps> = ({
 
     return String(targetInstallation.id)
   })
+
+  const installationFilteredRepos =
+    filterValue === ALL_INSTALLATION
+      ? repos
+      : repos?.filter((repo) => String(repo.installationId) === filterValue)
   return (
-    <FilterContext.Provider value={{ filterValue, setFilterValue }}>
+    <FilterContext.Provider
+      value={{ filterValue, setFilterValue, installationFilteredRepos }}
+    >
       {children}
     </FilterContext.Provider>
   )
