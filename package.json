@@ -44,7 +44,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.0.4",
+    "@next/eslint-plugin-next": "^15.1.6",
     "@octokit/types": "^13.6.1",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
